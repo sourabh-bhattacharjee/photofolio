@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { db } from "../firebaseInit";
 import { collection, addDoc} from "firebase/firestore";
-export default function AlbumForm(){
-    const [albumName , setAlbumName] = useState("");
+export default function AlbumForm({returnAlbumName}){
+    const [albumName , setAlbumName] = useState(""); 
     function handleNameChange(event){
         setAlbumName(event.target.value);
     }
@@ -13,6 +13,7 @@ export default function AlbumForm(){
             AlbumName: albumName
           });
           setAlbumName("");
+          returnAlbumName(albumName);
     }
     return(
         <div className="album_form">
