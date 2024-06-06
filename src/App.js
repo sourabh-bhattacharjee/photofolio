@@ -4,18 +4,19 @@ import AlbumForm from "./Components/AlbumForm";
 import { db } from "./firebaseInit";
 import { collection, query, getDocs } from "firebase/firestore";
 import ImageList from "./Components/ImageList";
+import ImagePage from "./Components/ImagePage"
 
 
 function App() {
     const [isShowAddAlbum , setIsShowAddAlbum] = useState(false);
     const [toggleAddCancelAlbum , setToggleAddCancelAlbum] = useState(true);
     const [getName, setGetName] = useState([]);
+    const [imgName, setImgName] = useState('');
     useEffect(() =>{
         let data = [];
             const fetchDoc = async () =>{
             const q = query(collection(db, "ImageAlbum"));
             const querySnapshot = await getDocs(q);
-            console.log(querySnapshot);
             querySnapshot.forEach((doc) => {
                 data.push(doc.data().AlbumName)
               });
@@ -24,21 +25,21 @@ function App() {
         }
         fetchDoc()
     },[])
+    const getImgName  = (data) => {
+      setImgName(data);
+    }
     function handleAlbumClick(){
-        console.log(getName);
         setIsShowAddAlbum(!isShowAddAlbum);
         setToggleAddCancelAlbum(!toggleAddCancelAlbum);
     }
     const getAlbumNameForm = (data) => {
-        let temp = [...getName,data] 
-        console.log("TEMP",temp);
+        let temp = [...getName,data]
         setGetName(temp);
-        // console.log(getName);
     }
   return (
     <>
       <div className="navDiv"><NavBar /></div>
-      <div className="app_content">
+      {!imgName?<div className="app_content">
             {isShowAddAlbum ? <div><AlbumForm returnAlbumName={getAlbumNameForm}/></div> : null}
             <div>
                 <div className="albumList_top">
@@ -46,9 +47,9 @@ function App() {
                     {toggleAddCancelAlbum? <button onClick={handleAlbumClick}>Add Album</button>
                     : <button className="cancel" onClick={handleAlbumClick}>cancel</button>}
                 </div>
-                < ImageList  AlbumName={getName}/>
+                < ImageList docName={getImgName} AlbumName={getName}/>
             </div>
-        </div>
+        </div>:<ImagePage imgName= {imgName} /> }
     </>
   );
 }
