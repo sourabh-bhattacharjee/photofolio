@@ -24,7 +24,7 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
 }
-.album_form{
+.album_form {
   background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
@@ -56,7 +56,7 @@ body {
     transition: .3s;
     width: 60%;
 }
-.album_form form button{
+.album_form form button , .imageFormAdd button{
   background-color: #07f;
   border: none;
   border-radius: 7px;
@@ -69,8 +69,22 @@ body {
   padding-block: 7px;
   width: 100px;
 }
-.album_form form button:first-of-type{
+.album_form form button:first-of-type , .imageFormAdd button:first-of-type{
   background-color: #ff1300 !important;
+}
+.imgForm{
+  display: flex;
+  flex-direction: column;
+  gap: 20px !important;
+}
+.imgForm input{
+  width: 97% !important;
+}
+.imageFormAdd{
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
 }
 
 .app_content{
@@ -83,6 +97,38 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+}
+.albumList_top span{
+  align-items: center;
+  aspect-ratio: 1;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .24);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+  width: 50px;
+}
+.albumList_top span img{
+  width: 30px;
+}
+.imageList_search{
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+.imageList_search img{
+  cursor: pointer;
+  width: 30px;
+}
+.imageList_search input{
+  font-size: 1.1rem;
+  font-weight: 300;
+  outline: none;
+  padding: 5px 5px 5px 10px;
 }
 .albumList_top h3{
   font-size: 1.7rem;
@@ -100,7 +146,7 @@ body {
     padding: 5px 10px;
 }
 
-.albumList_top .cancel{
+.albumList_top .cancel {
   background-color: rgba(255, 19, 0, .1);
     border: 2px solid #ff1300;
     color: #ff1300;
