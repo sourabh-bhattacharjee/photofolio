@@ -36,6 +36,9 @@ function App() {
         let temp = [...getName,data]
         setGetName(temp);
     }
+    function handleBackClick(){
+      setImgName(!imgName)
+    }
   return (
     <>
       <div className="navDiv"><NavBar /></div>
@@ -49,7 +52,7 @@ function App() {
                 </div>
                 < ImageList docName={getImgName} AlbumName={getName}/>
             </div>
-        </div>:<ImagePage imgName= {imgName} /> }
+        </div>:<ImagePage onClose={handleBackClick}imgName= {imgName} /> }
     </>
   );
 }
