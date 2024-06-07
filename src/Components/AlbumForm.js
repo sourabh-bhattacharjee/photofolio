@@ -11,7 +11,8 @@ export default function AlbumForm({returnAlbumName}){
         e.preventDefault();
         await addDoc(collection(db, "ImageAlbum"), {
             AlbumName: albumName
-          });
+        });
+        await addDoc(collection(db,albumName),{});
           setAlbumName("");
           returnAlbumName(albumName);
     }
