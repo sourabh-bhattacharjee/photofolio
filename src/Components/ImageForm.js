@@ -25,13 +25,6 @@ export default function ImageForm({isImgAdd,AlbumName}){
         })
       validUrl.then(() => {return true}).catch(() => {return false})
     }
-    async function savetoDB(){
-      await addDoc(collection(db, AlbumName), {
-        Title: titleRef,
-        Url: urlRef
-      });
-      isImgAdd();
-    }
     async function handleSubmit(e){
       e.preventDefault();
         if(checkUrl()){
@@ -44,6 +37,8 @@ export default function ImageForm({isImgAdd,AlbumName}){
         }else{
           toast.error("Invalid Url");
         }
+        setTitleRef("");
+        seturlRef("");
     }
     return(
       <div className="album_form">

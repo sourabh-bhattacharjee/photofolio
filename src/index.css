@@ -192,3 +192,81 @@ body {
   transition: .3s;
   width: 100%;
 }
+.imageList{
+    grid-gap: 20px;
+    display: grid;
+    gap: 20px;
+    grid-auto-flow: row;
+    grid-auto-rows: 150px;
+    grid-template: repeat(1, 150px) / repeat(auto-fit, minmax(175px, .5fr));
+    margin-bottom: 50px;
+}
+
+.imageListBox{
+   background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 100%;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.imageListUpdate , .imageListDelete{
+    border: none;
+    display: block;
+    outline: none;
+    position: absolute;
+    right: 0px;
+    top: -15px;
+    transition: .3s;
+}
+.imageListUpdate img , .imageListDelete img{
+  width: 35px;
+}
+.imageListUpdate{
+  right: 30px !important;
+}
+.imageListUpdate:hover , .imageListDelete:hover{
+  transform: scale(.95);
+}
+.imageSize{
+    height: 80%;
+    object-fit: cover;
+    width: 100%;
+}
+.caro{
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  gap: 30px;
+  inset: 0;
+  justify-content: center;
+  position: fixed;
+  z-index: 999;
+}
+.caroimg{
+  height: 80%;
+  object-fit: cover;
+}
+.caro button{
+  position: absolute;
+    right: 50px;
+    top: 50px;
+    align-items: center;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 800;
+    justify-content: center;
+    outline: none;
+    transition: .3s;
+    width: 60px;
+}
+.caro button:hover{
+  background-color: red;
+}
